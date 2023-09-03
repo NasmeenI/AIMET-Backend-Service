@@ -12,7 +12,7 @@ datasource db {
 
 model Flag {  
   flagId          String         @id @default(auto()) @map("_id") @db.ObjectId  
-  name            String 
+  name            String         @unique
   priority        Int  
 
   historyFlag     HistoryFlag?   @relation(fields: [historyFlagId], references: [historyFlagId])
@@ -23,7 +23,7 @@ model Flag {
 }
 
 model HistoryFlag {
-  historyFlagId   String        @id @default(auto()) @map("_id") @db.ObjectId  
+  historyFlagId   String         @id @default(auto()) @map("_id") @db.ObjectId  
   name            String
   flags           Flag[]
 

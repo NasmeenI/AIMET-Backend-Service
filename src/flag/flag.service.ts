@@ -22,10 +22,10 @@ export class FlagService {
     })
   }
 
-  async editFlagById(flagId: string, dto: EditFlagDto) {
+  async editFlagByName(name: string, dto: EditFlagDto) {
     // get flag by id 
     const flag = await this.prisma.flag.findUnique({
-      where: { flagId: flagId }
+      where: { name: name }
     })
 
     // check if there is no flag
@@ -33,7 +33,7 @@ export class FlagService {
       throw new ForbiddenException('Access to resources denied');
     
     return this.prisma.flag.update({
-      where: { flagId: flagId },
+      where: { name: name },
       data: { ...dto },
     });
   }

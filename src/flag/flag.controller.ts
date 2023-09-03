@@ -31,17 +31,17 @@ export class FlagController {
     return this.flagService.craeteFlag(dto);
   }
 
-  @Patch(':id')
-  editFlagById(
-    @Param('id') flagId: string,
+  @Patch(':name')
+  editFlagByName(
+    @Param('name') name: string,
     @Body() dto: EditFlagDto,
   ) {
-    return this.flagService.editFlagById(flagId, dto);
+    return this.flagService.editFlagByName(name, dto);
   }
 
   @HttpCode(HttpStatus.NO_CONTENT)
   @Delete(':id')
-  deleteProductById( @Param('id') flagId: string, ) {
+  deleteFlagById( @Param('id') flagId: string, ) {
     return this.flagService.deleteFlagById(flagId);
   }
 }

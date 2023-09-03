@@ -3,13 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { FlagModule } from './flag/flag.module';
-import { ActiveFlagModule } from './activeFlag/activeFlag.module';
+import { HistoryFlagModule } from './historyFlag/historyFlag.module';
 
 @Module({
   imports: [
     PrismaModule,
     FlagModule,
-    ActiveFlagModule,
+    HistoryFlagModule,
   ],
   controllers: [AppController],
   providers: [AppService],
